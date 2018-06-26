@@ -1,11 +1,13 @@
 ### Repro for a possible bug in Elm using recursive lazy decoder
 
+## EDIT: Known issue. Probably fixed in development builds. See: [Runtime error with recursive definitions](https://github.com/elm/compiler/issues/1591)
+
 For a recursive JSON decoder with `lazy` evaluation, Elm is generating decoders in wrong order causing error:
 ```js
 Uncaught TypeError: Cannot read property 'tag' of undefined
     at runHelp (main.elm:5822)
 ```
-See below for a [workaround](#Workaround).
+See below for a [workaround](#workaround).
 
 ### Repro Steps
 1. Clone this repo: `git clone https://github.com/shatgupt/elm-lazy-decoder-bug.git`
